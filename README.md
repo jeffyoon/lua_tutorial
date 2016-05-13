@@ -1,6 +1,6 @@
 # Lua Tutorial
 
-This is a page for Lua tutorial and provides the example code for understaing the
+This repository is for learning Lua and provides the example code for understaing the
 Lua
 
 1. Baisc data type
