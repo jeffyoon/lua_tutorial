@@ -1,11 +1,13 @@
-# lua_tutorial
+# Lua Tutorial
 
-This is a page for Lua tutorial and provides some example for understaing the
+This is a page for Lua tutorial and provides the example code for understaing the
 Lua
 
-1. Baisc data type of Lua
-2. Function in Lua
-3. Table in Lua
-4. OOP in Lua
-5. Co-routine in Lua
-6. C-Lua binding module
+1. Baisc data type
+2. Function
+3. Table
+4. OOP
+5. Co-routine
+6. C-Lua binding
+
+
