@@ -1,4 +1,4 @@
-#C Code 를 Lua script 에서 사용할수 있도록 C-Lua Binding module 을 만드는것
+# C Code 를 Lua script 에서 사용할수 있도록 C-Lua Binding module 을 만드는것
 
 - Lua is an extensible language
 > we can extend its functionality using libraries written in other languages (Mostly C)
@@ -9,7 +9,7 @@
 The same API that we use to call Lua from C, for extending an application, is the API we use to call C from Lua , to implement C modules.
 
 
-##C API
+## C API
 - The C API has a few dozen functions to read and write global variables,
   call functions and chunks, create new tables, read and write table fields, export C function to Lua etc.
 
@@ -18,17 +18,17 @@ The same API that we use to call Lua from C, for extending an application, is th
 - This is C programming , so segmentation faults and memory corruption await the careless!
 
 
-##Lua states
+## Lua states
 - The Lua interpreter does not define any C global variables: it keeps its state in a data structure called just a **Lua state**.
 
-##Lua Stack
+## Lua Stack
 - All communication between Lua and C code is done through the Lua stack.
 - The stack holds Lua values , and C API functions usually pop values they need from the stack and push values they produce on the stack.
 - It is your responsibility to make sure the stack has enough "slots" to do what you want, and a fresh stack begin with space for 20 slots;
 if you need more, use lua_checkstack:
 sucess = lua_checkstack(L, 50);/* make sure there is space to push 50 values */
 
-##Pushing values
+## Pushing values
 - The C API has functions to push atomic values :
 ```
   void lua_pushnul(lua_State *L);
@@ -42,7 +42,7 @@ sucess = lua_checkstack(L, 50);/* make sure there is space to push 50 values */
   void lau_newtable(lua_State *L);
 ```
 
-##Querying elements
+## Querying elements
 - C code can reference any position in the stack with indices.
 - Positive indices (from 1) count from the bottom to the stack and up.
 - Negative indices (from -1) count from the top of the stack and down.
@@ -55,14 +55,14 @@ For example : -1 is always the top slot, -2 is the slot below the top and so on.
 | .. |  stack bottom   |  1  |
 ```
 
-##Type Checking
+## Type Checking
 - The lau_type function is the analogue of type :
 ```
   int lau_type (lua_State *L, int index);
   const char * lua_typename(lua_State *L, int type);
 ```
 
-##Getting atomic values out
+## Getting atomic values out
 - The API has several functions to extract atomic values from the stack (while leaving them there) :
 ```
   int lua_toboolean(lua_State *L, int index);
@@ -72,7 +72,7 @@ For example : -1 is always the top slot, -2 is the slot below the top and so on.
   unsigned int lua_tounsigned(lua_State *L, int index);
 ```
 
-##Stack movement
+## Stack movement
 - There are several functions to move the stack contents around, which is useful sometimes:
 - Remember that all indices can be positive or negative
 ```
@@ -92,7 +92,7 @@ For example : -1 is always the top slot, -2 is the slot below the top and so on.
   void lua_copy (lua_State *L, int from, int to);
 ```
 
-##Calling a C function from Lua
+## Calling a C function from Lua
 - Function receives a Lua state (stack) and returns (in C) number of results (in Lua)
 - Get arguments from the stack , do computation, push arguments into the stack.
 ```
