@@ -1,4 +1,4 @@
-# C Code 를 Lua script 에서 사용할수 있도록 C-Lua Binding module 을 만드는것
+# How to make a lua-c binding module that c code works on lua script.
 
 - Lua is an extensible language
 > we can extend its functionality using libraries written in other languages (Mostly C)
